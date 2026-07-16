@@ -5,14 +5,20 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container mx-auto py-8">
-        <h1 class="text-2xl font-bold mb-4">Liste des projets</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="container w-screen py-8 px-10">
+        <h1 class="text-2xl font-bold mb-4 text-center">Liste des projets</h1>
+        <div class="flex flex-col w-full gap-4">
             {% for projet in projets %}
-                <div class="card bg-base-100 shadow-xl">
-                    <div class="card-body">
+                <div class="flex items-center justify-between w-full border border-base-300 bg-base-100 rounded-xl p-4">
+                    <div>
                         <h2 class="card-title">{{ projet.nom }}</h2>
-                        <p>{{ projet.description }}</p>
+                        <p class="text-base-content/70 text-sm">{{ projet.description_projet }}</p>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <a href="#" class="btn btn-soft btn-sm">Voir plus</a>
+                        <a href="#" class="btn btn-warning btn-soft btn-sm">Modifier</a>
+                        <a href="#" class="btn btn-error btn-soft btn-sm">Supprimer</a>
                     </div>
                 </div>
             {% endfor %}
