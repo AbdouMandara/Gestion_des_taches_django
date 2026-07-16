@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html data-theme="dracula" class="h-full">
+<head>
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titre_page %} {% endblock %}| GestTasks</title>
+</head>
+
+<body class="p-0 m-0 w-full h-screen">
+    <div class="navbar bg-base-100 shadow-sm">
+        <!-- div du logo -->
+        <div class="navbar-start hidden lg:flex">
+            <a href="#" class="btn btn-ghost text-xl">GestTasks</a>
+        </div>
+
+
+        <div class="navbar-end ">
+            <a href="#" class="btn btn-primary rounded-full mr-4">Ajouter un projet</a>
+        </div>
+    </div>
+
+    <section>
+        {% block content %}
+        
+        {% endblock  %}
+    </section>
+</body>
+</html>
