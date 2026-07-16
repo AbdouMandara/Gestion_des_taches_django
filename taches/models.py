@@ -7,6 +7,11 @@ class Projet(models.Model) :
     date_creation = models.DateTimeField(db_comment="Date et periode que le projet a été créé", auto_now_add=True)
     date_modification = models.DateTimeField(db_comment="Date de modif du projet", auto_now=True)
     
+    class Meta : 
+        ordering = ["date_creation"] # Permet de trier les projets par date de création dans l'ordre croissant
+        verbose_name = "Projet" # Permet de changer le nom du modèle dans l'admin
+        verbose_name_plural = "Projets" # Permet de changer le nom du modèle dans l'admin quand il y a plusieurs instances de ce modèle
+
     # Toujours faire ça car bonne pratique au niveau dashboard admin
     def __str__(self) -> str:
         return f"{self.nom} {self.description_projet} {self.date_creation}"
@@ -36,6 +41,10 @@ class Task(models.Model) :
     date_modification_tache = models.DateTimeField(db_comment="Date de modif de la tache", auto_now=True)
     projet = models.ForeignKey(Projet, on_delete=models.CASCADE)
 
+    class Meta :
+        ordering = ["titre"]
+        verbose_name = "Tache"
+        verbose_name_plural = "Taches"
 
     def __str__(self):
         return f"{self.titre} {self.description_tache} {self.statut} {self.priorite} {self.date_creation_tache} {self.date_modification_tache}" 
