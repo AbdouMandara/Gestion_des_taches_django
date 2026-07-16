@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block titre_page%}
+    Mise à jour du projet
+{% endblock %}
+
+{% block lien %}
+    <a href="{% url 'Affichage_des_projets' %}" class="btn btn-primary rounded-full mr-4">Accueil</a>
+{% endblock %}
+{% block content %}
+    {% for mes in messages %}
+    <div class="alert alert-{{ mes.tags }} flex items-center">
+        {{ mes }}
+    </div>
+    {% endfor %}
+<main class="w-full h-screen flex flex-col items-center justify-center">
+    <div class="flex card-body flex-col items-center">
+        <h1 class="text-3xl text-base-content card-title mt-8">Mise à jour du projet</h1>
+        <form action="" method="post" class="space-y-4">
+            <p class="text-sm text-center text-base-content/60 mb-10">Veuillez remplir ce formulaire afin de modifier un projet</p>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="w-full btn btn-primary">Modifier</button>
+        </form>
+    </div>
+</main>
+{% endblock %}
