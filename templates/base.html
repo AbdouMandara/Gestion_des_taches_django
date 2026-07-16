@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html data-theme="cupcake" class="h-full">
+<head>
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titre_page %} {% endblock %}| GestTasks</title>
+</head>
+
+<body class="p-0 m-0 w-screen h-screen">
+    <div class="navbar bg-base-100 shadow-sm">
+        <!-- div du logo -->
+        <div class="navbar-start hidden lg:flex">
+            <a href="{% url 'Affichage_des_projets' %}" class="text-xl">GestTasks</a>
+        </div>
+
+
+        <div class="navbar-end ">
+            {% block lien %} {% endblock%}
+        </div>
+    </div>
+
+    <section class="w-full">
+
+        {% block content %}
+        
+        {% endblock  %}
+    </section>
+</body>
+</html>
