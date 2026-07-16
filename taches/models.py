@@ -14,7 +14,7 @@ class Projet(models.Model) :
 
     # Toujours faire ça car bonne pratique au niveau dashboard admin
     def __str__(self) -> str:
-        return f"{self.nom} {self.description_projet} {self.date_creation}"
+        return f"{self.nom}"
 
 class Task(models.Model) :
     class STATUT(models.TextChoices) :
@@ -47,5 +47,5 @@ class Task(models.Model) :
         verbose_name_plural = "Taches"
 
     def __str__(self):
-        return f"{self.titre} {self.description_tache} {self.statut} {self.priorite} {self.date_creation_tache} {self.date_modification_tache}" 
+        return f"{self.titre}" 
     
