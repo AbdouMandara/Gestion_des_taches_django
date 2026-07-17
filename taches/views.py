@@ -38,4 +38,15 @@ def modification_projet(request, projet_id) :
     else :
             form = ProjetForm(instance=obj)
     return render(request,'templates_projets/update_projets.html', {'form' : form} )
-            
+
+def suppression_projet(request, projet_id) :
+    obj = get_object_or_404(Projet, id=projet_id)
+    if request.method == 'POST' :
+        obj.delete()
+        messages.success(request, f'Produit : {obj.nom} supprimé avec succès !')
+        return redirect('Affichage_des_projets')
+    
+    
+    return render(request, 'templates_projets/delete_projets.html', {
+        'name' : obj.nom,
+    })

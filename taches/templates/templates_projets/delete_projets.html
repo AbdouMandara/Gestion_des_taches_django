@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block titre_page%}
+    Suppression du projet
+{% endblock %}
+
+{% block lien %}
+<a href="{% url 'Affichage_des_projets' %}" class="btn btn-primary rounded-full mr-4">Accueil</a>
+{% endblock %}
+{% block content %}
+<div class="w-full h-screen flex flex-col items-center justify-center text-center space-y-16">
+    <p class="text-center text-xl">Es-tu sur de supprimer <strong class="mb-1/2">{{ name }}</strong> ? </p>
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-error text-xl">Oui, je supprime piang</button>
+        <a href="{% url 'Affichage_des_projets' %}" class="text-xl btn btn-ghost">Annuler</a>
+    </form>
+</div>
+
+{% endblock %}
